@@ -1,0 +1,11 @@
+<h1>BudgetApp</h1>
+<p>Welcome to Stevs BudgetApp!</p>
+<% if user_signed_in? %>
+  <!-- User is signed in, no need for redirection in the view -->
+  <%= link_to 'Log In', new_user_session_path %>
+<% else %>
+  <!-- User is not signed in, display sign-up and login links -->
+  <p>Please <%= link_to 'Sign Up', new_user_registration_path %> or <br/> <%= link_to 'Log In', new_user_session_path %> to continue.</p>
+<% end %>
+
+
