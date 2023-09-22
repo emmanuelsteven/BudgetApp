@@ -8,7 +8,8 @@
   <div class='transaction-details'>
     <div class='trans-icon-name'>
       <p class='trans-icon'>
-        <img src='<%= @category.icon %>' alt='category image' class='trans-cat-icon'></img>
+        <%= image_tag(@category.icon, class: 'trans-cat-icon') %>
+        
       </p>
       <p class='trans-cat-name'><%= @category.name %></p>
     </div>
@@ -21,13 +22,14 @@
     <% if @purchases.empty? %>
       <p>Add a transaction</p>
     <% else %>
-      <% @purchases.each do |purchase| %>
-        <div class='main-trans-details'>
-          <p class='bold'><%= detail.name %></p>
-          <p class='small-gap'><%= purchase.created_at.strftime('%e %b %Y') %></p>
-          <p class='small-gap'>$ <%= purchase.amount %></p>
-        </div>
-      <% end %>
+    <% @purchases.each do |purchase| %>
+      <div class='main-trans-details'>
+        <p class='bold'><%= purchase.name %></p>
+        <p class='small-gap'><%= purchase.created_at.strftime('%e %b %Y') %></p>
+        <p class='small-gap'>$ <%= purchase.amount %></p>
+        <p class='small-gap'><%= purchase.category.icon %></p> <!-- Access the category's icon -->
+      </div>
+    <% end %>
     <% end %>
   </div>
 </div>

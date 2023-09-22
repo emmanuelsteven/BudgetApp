@@ -6,14 +6,8 @@ Rails.application.routes.draw do
     root to: "categories#index", as: :authenticated_root
   end
     root 'splash#index'
-   
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users do 
-    resources :categories, only: [:index, :new, :create] do
-      resources :purchases, only: [:index, :new, :create]
+    resources :categories, only: [:index, :show, :new, :create, :destroy, :update] do
+      resources :purchases, only: [:index, :new, :create, :destroy, :edit, :update]
     end
   end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-end

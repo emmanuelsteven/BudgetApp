@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
 
   def index
+    @user = current_user
     @categories = current_user.categories.includes(:purchase_categories)
     @total_amount = calculate_total_amount(@categories)
   end

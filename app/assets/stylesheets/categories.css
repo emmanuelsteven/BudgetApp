@@ -54,6 +54,8 @@ body {
 }
 
 .add-item {
+  width: 25%;
+  margin: 0 auto;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -118,4 +120,9 @@ body {
 
 .mb {
   margin-bottom: 10px;
+}
+
+.category_icon{
+  width: 100px;
+
 }

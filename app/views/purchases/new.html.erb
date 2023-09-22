@@ -1,12 +1,12 @@
 <div class='new-container'>
   <div class='sign-up-details'>
-    <%= link_to user_purchase_categories_path do %>
+    <%= link_to category_purchases_path do %>
       <%= image_tag 'back.png', class: 'back' %>
     <% end %>
     <h2 class='centered-text'>Add a transaction</a>
   </div>
 
-  <%= form_with url: user_purchase_categories_path(params[:category_id]), scope: :purchase do |form| %>
+  <%= form_with url: category_purchases_path(params[:category_id]), scope: :purchase do |form| %>
     <div class='form-container'>
       <div class='field'>
         <%= form.label :name %>

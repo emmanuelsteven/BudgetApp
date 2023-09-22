@@ -1,6 +1,8 @@
 <div class='categories-container'>
 <div class='sign-up-details category-header'>
-<%= image_tag 'hamburger.png', class: 'search' %>
+<%= image_tag 'hamburger.png', class: 'hamburger' %>
+<h3>categories</h3>
+<%= image_tag 'search.png', class: 'search' %>
 </div>
 <div class='card-main-container'>
 <% if @categories.empty? %>
@@ -11,7 +13,7 @@
   <div class='card-container'>
   <% if category.present? %>
   <div class='icon-container'>
-  <img class='company-icon' src="<%= category.icon %>" alt='category-icon'></img>
+  <%= image_tag(category.icon, class: 'category_icon') %>
   </div>
   <div class='company-date'>
   <p><%= category.name %></p>
@@ -26,7 +28,7 @@
 <% end %>
 <% end %>
 </div>
-<a href="<%= new_user_category_path(current_user) %>" class='add-item'>
+<a href="<%= new_category_path %>" class='add-item'>
 <div class='inner'>
   Add a category
 </div>
@@ -34,19 +36,19 @@
 </div>
 
 
-<div class="menu-container">
-  <div class='modal'>
-    <div class='close-button-container'>
-      <p></p>
-      <span class="close-button">&times;</span>
-    </div>
-    <div class='ham-actions'>
-      <p class='mb'>Signed in as <%= current_user.name %></p>
-      <%= link_to "Edit Profile", edit_user_registration_path %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'in-out2' %>
-    </div>
-  </div>
-</div>
+# <div class="menu-container">
+#   <div class='modal'>
+#     <div class='close-button-container'>
+#       <p></p>
+#       <span class="close-button">&times;</span>
+#     </div>
+#     <div class='ham-actions'>
+#       <p class='mb'>Signed in as <%= current_user.name %></p>
+#       <%= link_to "Edit Profile", edit_user_registration_path %>
+#       <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'in-out2' %>
+#     </div>
+#   </div>
+# </div>
 
 <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "text-white h4 log_out" %>
 
