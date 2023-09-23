@@ -1,0 +1,45 @@
+<div class='new-container'>
+  <div class='sign-up-details'>
+    <%= link_to authenticated_root_path do %>
+      <%= image_tag 'back.png', class: 'back' %>
+    <% end %>
+    <h2 class='centered-text'>Transactions</h2>
+  </div>
+  <div class='transaction-details'>
+    <div class='trans-icon-name'>
+      <p class='trans-icon'>
+        <%= image_tag(@category.icon, class: 'trans-cat-icon') %>
+        
+      </p>
+      <p class='trans-cat-name'><%= @category.name %></p>
+      <p>$ <%= @category.total_amount %></p>
+    </div>
+
+    <div class='trans-total'>
+    </div>
+    
+    <% if @purchases.empty? %>
+      <p>Add a transaction</p>
+    <% else %>
+    <% @purchases.each do |purchase| %>
+      <div class='main-trans-details'>
+      <% # Access the category's icon for this purchase %>
+      <p class='small-gap'>
+        <%= image_tag(purchase.category.icon, class: 'trans-cat-icon', style: 'width: 100px') if purchase.category.present? %>
+
+      </p>
+        <p class='bold'><%= purchase.name %></p>
+        <p class='small-gap'><%= purchase.created_at.strftime('%e %b %Y') %></p>
+        <p class='small-gap'>$ <%= purchase.amount %></p>
+        
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<a href='/categories/<%= @category.id %>/purchases/new' class='add-item'>
+  <div class='inner'>
+    Add a transaction
+  </div>
+</a>

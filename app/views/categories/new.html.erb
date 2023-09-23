@@ -1,0 +1,24 @@
+<div class='new-container'>
+  <div class='sign-up-details'>
+    <%= link_to authenticated_root_path do %>
+      <%= image_tag 'back.png', class: 'back' %>
+    <% end %>
+    <h2 class='centered-text'>Add a category</h2>
+  </div>
+  <%= form_with(model: [current_user, @category], url: categories_path, local: true, multipart: true) do |form| %>
+    <div class='form-container'>
+      <div class="field">
+        <%= form.label :name %>
+          <%= form.text_field :name, autofocus: true, placeholder: 'Enter category name ...' %> 
+      </div>
+
+      <div class="field">
+        <%= form.label :icon %>
+          <%= form.file_field :icon %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Create Category', class: 'sub-btn'%>
+      </div>
+    <div>
+  <% end %>
+</div>
