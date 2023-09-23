@@ -1,11 +1,11 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: Expenditure App
+    databaseName: expenditure_app
+    user: expenditure_app_user
 
 services:
   - type: web
-    name: mysite
+    name: Expenditure App
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
