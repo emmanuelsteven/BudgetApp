@@ -69,13 +69,13 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Checkout the live site here!]()
+[My Budget App](https://expenditure-app.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Project Presentation <a name="Presentation"></a>
 
-[Loom Video presentation]()
+[Loom Video presentation](https://www.loom.com/share/1d013ef3c807412e883b1f0a6ad33295)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
