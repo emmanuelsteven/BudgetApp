@@ -5,7 +5,7 @@
     <% end %>
     <h2 class='centered-text'>Add a category</h2>
   </div>
-  <%= form_with(model: [current_user, @category], local: true, multipart: true) do |form| %>
+  <%= form_with(model: [current_user, @category], url: categories_path, local: true, multipart: true) do |form| %>
     <div class='form-container'>
       <div class="field">
         <%= form.label :name %>

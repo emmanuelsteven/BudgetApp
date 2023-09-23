@@ -7,4 +7,7 @@ class Category < ApplicationRecord
  
   
     validates :name, presence: true
+    def add_amount
+        purchases.sum(:amount)
+    end
 end

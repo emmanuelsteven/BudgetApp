@@ -15,8 +15,11 @@
     </div>
 
     <div class='trans-total'>
-      <p class='bold-text'>Total Payment</p>
-      <p>$ <%= @total_amount %></p>
+      # <p class='bold-text'>Total Payment</p>
+      # <p>$ <%= @category.add_amount %></p>
+      <h1><%= @category.name %> Category</h1>
+      <p>Total Purchase Amount: <%= number_to_currency(@total_purchase_amount) %></p>
+
     </div>
     
     <% if @purchases.empty? %>

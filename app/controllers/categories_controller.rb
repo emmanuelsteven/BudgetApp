@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
     @new_category = current_user.categories.new(category_params)
     if @new_category.save
       flash[:notice] = "#{@new_category.name} created successfully"
-      redirect_to user_categories_path
+      redirect_to categories_path
     else
       flash[:alert] = 'Fill all required fields'
       render :new # Render instead of redirect to preserve form data

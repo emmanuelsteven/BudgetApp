@@ -3,10 +3,10 @@
     <%= link_to category_purchases_path do %>
       <%= image_tag 'back.png', class: 'back' %>
     <% end %>
-    <h2 class='centered-text'>Add a transaction</a>
+    <h2 class='centered-text'>Add a transaction</h2>
   </div>
 
-  <%= form_with url: category_purchases_path(params[:category_id]), scope: :purchase do |form| %>
+  <%= form_with(model: [@categories, @new_purchase], url: category_purchases_path(@category.id), scope: :purchase) do |form| %>
     <div class='form-container'>
       <div class='field'>
         <%= form.label :name %>
@@ -17,6 +17,7 @@
         <%= form.label :amount %>
         <%= form.number_field :amount, placeholder: 'Enter amount for the transaction...' %>
       </div>
+      <%= hidden_field_tag 'category_id', @category.id %>
 
       <div class="actions">
         <%= form.submit "Add", class: 'in-out' %>
