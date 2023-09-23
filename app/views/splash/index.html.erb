@@ -1,8 +1,8 @@
 
 <div class = 'splash-container'>
-<h1>BudgetApp</h1>
+<h1 class='appname'>BudgetApp</h1>
 </br>
-<p>Welcome to Stevs BudgetApp!</p>
+<p class='welcom'>Welcome to Stevs BudgetApp!</p>
 <br/>
 <div class= 'imgUrl'>
 <%= image_tag 'bud1.jpg', alt: 'logo', class: 'main-logo' %>
@@ -13,7 +13,8 @@
   <%= link_to 'Log In', new_user_session_path %>
 <% else %>
   <!-- User is not signed in, display sign-up and login links -->
-  <p>Please <%= link_to 'Sign Up', new_user_registration_path %> or <br/> <%= link_to 'Log In', new_user_session_path %> to continue.</p>
+  <p class= 'add-log signed'> <%= link_to 'Log In', new_user_session_path %> </p> 
+  <p class= 'add-log signeds'><%= link_to 'Sign Up', new_user_registration_path %></p>
 <% end %>
 </div>
 </div>
