@@ -1,4 +1,9 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class='sign-up-details'>
+  <%= link_to authenticated_root_path do %>
+    <%= image_tag 'back.png', class: 'back' %>
+  <% end %>
+  <h2 class='centered-text'>Edit <%= resource_name.to_s.humanize %></h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

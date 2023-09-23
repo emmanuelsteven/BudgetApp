@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_141051) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_065753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,22 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_141051) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
-  create_table "purchase_categories", force: :cascade do |t|
-    t.bigint "purchase_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_purchase_categories_on_category_id"
-    t.index ["purchase_id"], name: "index_purchase_categories_on_purchase_id"
-  end
-
   create_table "purchases", force: :cascade do |t|
     t.string "name"
     t.float "amount"
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id", null: false
     t.index ["author_id"], name: "index_purchases_on_author_id"
+    t.index ["category_id"], name: "index_purchases_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,7 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_141051) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "users"
-  add_foreign_key "purchase_categories", "categories"
-  add_foreign_key "purchase_categories", "purchases"
+  add_foreign_key "purchases", "categories"
   add_foreign_key "purchases", "users", column: "author_id"
 end

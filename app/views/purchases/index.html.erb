@@ -12,14 +12,10 @@
         
       </p>
       <p class='trans-cat-name'><%= @category.name %></p>
+      <p>$ <%= @category.total_amount %></p>
     </div>
 
     <div class='trans-total'>
-      # <p class='bold-text'>Total Payment</p>
-      # <p>$ <%= @category.add_amount %></p>
-      <h1><%= @category.name %> Category</h1>
-      <p>Total Purchase Amount: <%= number_to_currency(@total_purchase_amount) %></p>
-
     </div>
     
     <% if @purchases.empty? %>
@@ -27,10 +23,15 @@
     <% else %>
     <% @purchases.each do |purchase| %>
       <div class='main-trans-details'>
+      <% # Access the category's icon for this purchase %>
+      <p class='small-gap'>
+        <%= image_tag(purchase.category.icon, class: 'trans-cat-icon', style: 'width: 100px') if purchase.category.present? %>
+
+      </p>
         <p class='bold'><%= purchase.name %></p>
         <p class='small-gap'><%= purchase.created_at.strftime('%e %b %Y') %></p>
         <p class='small-gap'>$ <%= purchase.amount %></p>
-        <p class='small-gap'><%= purchase.category.icon %></p> <!-- Access the category's icon -->
+        
       </div>
     <% end %>
     <% end %>

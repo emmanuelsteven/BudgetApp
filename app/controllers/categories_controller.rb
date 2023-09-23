@@ -4,11 +4,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
 
   def index
-    @user = current_user
-    @categories = current_user.categories.includes(:purchase_categories)
-    @total_amount = calculate_total_amount(@categories)
+    @categories = Category.all
   end
-  
 
   def show
     # Category details can be loaded here if needed
@@ -43,9 +40,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def calculate_total_amount(categories)
-    categories.map do |category|
-      category.purchase_categories.sum { |cd| cd.purchase.amount }
-    end
-  end
+  # def calculate_total_amount(categories)
+  #   categories.map do |category|
+  #     category.purchase_categories.sum { |cd| cd.purchase.amount }
+  #   end
+  # end
 end

@@ -80,7 +80,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+ production:
   <<: *default
-  database: BudgetApp_production
-  username: BudgetApp
-  password: <%= ENV["BUDGETAPP_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -1,11 +1,18 @@
-<h2>Sign up</h2>
+<div class='sign-up-details'>
+  <%= link_to root_path do %>
+    <%= image_tag 'back.png', class: 'back' %>
+  <% end %>
 
+  <h2 class='signUp'>Sign up</h2>
+
+</div>
+<br/>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
-  <%= f.text_field :name, autofocus: true, placeholder:'Name field' %>
+  <%= f.text_field :name, autofocus: true, placeholder:'Name field'%>
 </div>
-
+<br/>
   <div class="field">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email',class: 'entry field' %>
   </div>
@@ -16,14 +23,16 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password",placeholder: 'password', class: 'entry_field' %> <br/>
   </div>
-
+<br/>
   <div class="field">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password confirmation', class: 'entry-field' %>
   </div>
-
+<br/>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
+<div class='centered-text top-gap'>
 <%= render "devise/shared/links" %>
+</div>
