@@ -1,4 +1,4 @@
-<div class='new-container'>
+<div class='purchase-container'>
   <div class='sign-up-details'>
     <%= link_to authenticated_root_path do %>
       <%= image_tag 'back.png', class: 'back' %>
@@ -33,13 +33,14 @@
         <p class='small-gap'>$ <%= purchase.amount %></p>
         
       </div>
+      <a href='/categories/<%= @category.id %>/purchases/new' class='add-item'>
+  <div class='inner'>
+    Add a transaction
+  </div>
+</a>
     <% end %>
     <% end %>
   </div>
 </div>
 
-<a href='/categories/<%= @category.id %>/purchases/new' class='add-item'>
-  <div class='inner'>
-    Add a transaction
-  </div>
-</a>
+

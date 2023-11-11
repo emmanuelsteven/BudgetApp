@@ -26,6 +26,14 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    if @new_category.destroy
+      render json: { message: 'category  deleted successfully!' }
+    else
+      render json: { error: 'Failed to delete the category' }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def category_params
