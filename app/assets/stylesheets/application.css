@@ -216,6 +216,7 @@ input:focus,
 @media (min-width: 701px) {
   body {
     max-width: 420px;
+
     /* height: 100vh; */
     margin: 0 auto;
     box-shadow: 0 0 30px #d9d9d9;
@@ -229,7 +230,7 @@ input:focus,
   }
 
   .menu-container {
-    position: absolute; 
+    position: absolute;
   }
 
   .categories-container {
@@ -237,9 +238,11 @@ input:focus,
     flex-direction: column;
     min-height: 100vh;
   }
+
   .card-main-container {
     flex-grow: 1; /* Allow this container to grow to fill the available space */
   }
+
   /* .new-container {
     height: 100vh;
   } */
