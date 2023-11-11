@@ -216,27 +216,33 @@ input:focus,
 @media (min-width: 701px) {
   body {
     max-width: 420px;
+    /* height: 100vh; */
     margin: 0 auto;
     box-shadow: 0 0 30px #d9d9d9;
     padding-bottom: 20px;
   }
 
   .add-item {
-    position: absolute;
-    width: 37.2vw;
+    /* position: absolute; */
+    width: 100%;
+    margin: auto;
   }
 
   .menu-container {
-    position: absolute;
+    position: absolute; 
   }
 
   .categories-container {
-    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
-
-  .new-container {
+  .card-main-container {
+    flex-grow: 1; /* Allow this container to grow to fill the available space */
+  }
+  /* .new-container {
     height: 100vh;
-  }
+  } */
 
   .add-log {
     position: relative;
