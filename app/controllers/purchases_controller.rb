@@ -36,6 +36,14 @@ class PurchasesController < ApplicationController
     end
   end
 
+  def destroy
+    if @new_purchase.destroy
+      render json: { message: 'purchased item  deleted successfully!' }
+    else
+      render json: { error: 'Failed to delete the purchased item' }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def purchase_params
