@@ -34,6 +34,18 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def update_purchases
+
+    @categories.each do |category|
+      total_amount = category.purchase_categories.sum { |pc| pc.purchase.amount }
+      category.update(total_purchase_amount: total_amount)
+    end
+
+    flash[:notice] = 'Purchases updated successfully'
+    redirect_to categories_path
+  end
+end
+
   private
 
   def category_params
